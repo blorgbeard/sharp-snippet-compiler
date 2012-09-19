@@ -224,25 +224,28 @@ namespace ICSharpCode.SharpSnippetCompiler
 			using (SelectReferenceDialog referenceDialog = new SelectReferenceDialog(project)) {
 				
 				// Add existing project references to dialog.
-				List<ReferenceProjectItem> references = GetReferences(project);
-				AddReferences(referenceDialog as ISelectReferenceDialog, references);
+				var existingReferences = GetReferences(project);
+				AddReferences(referenceDialog as ISelectReferenceDialog, existingReferences);
 
 				DialogResult result = referenceDialog.ShowDialog();
 				if (result == DialogResult.OK) {
 
 					ArrayList selectedReferences = referenceDialog.ReferenceInformations;
-					
-					// Remove any references removed in the select reference dialog.
-					foreach (ReferenceProjectItem existingReference in references) {
+
+                    // Add new references.
+                    foreach (ReferenceProjectItem reference in selectedReferences) {
+                        if (!existingReferences.Contains(reference)) {
+                            ProjectService.AddProjectItem(project, reference);
+                        }
+                    }
+                    
+                    // Remove any references removed in the select reference dialog.
+					foreach (var existingReference in existingReferences) {
 						if (!selectedReferences.Contains(existingReference)) {
 							ProjectService.RemoveProjectItem(project, existingReference);
 						}
 					}
-					
-					// Add new references.
-					foreach (ReferenceProjectItem reference in referenceDialog.ReferenceInformations) {
-						ProjectService.AddProjectItem(project, reference);
-					}
+										
 					project.Save();
 				}
 			}
