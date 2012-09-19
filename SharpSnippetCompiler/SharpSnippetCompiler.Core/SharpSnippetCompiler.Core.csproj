@@ -127,11 +127,11 @@
     <Compile Include="SnippetCompilerProject.cs" />
     <Compile Include="SnippetFile.cs" />
     <Compile Include="Workbench.cs" />
-    <EmbeddedResource Include="..\..\..\src\Main\StartUp\Project\Resources\BitmapResources.resources">
+    <EmbeddedResource Include="..\resources\BitmapResources.resources">
       <Link>Resources\BitmapResources.resources</Link>
       <LogicalName>Resources.BitmapResources.resources</LogicalName>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\..\..\src\Main\StartUp\Project\Resources\StringResources.resources">
+    <EmbeddedResource Include="..\resources\StringResources.resources">
       <Link>Resources\StringResources.resources</Link>
       <LogicalName>Resources.StringResources.resources</LogicalName>
     </EmbeddedResource>
