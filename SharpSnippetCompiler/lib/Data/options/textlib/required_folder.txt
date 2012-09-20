@@ -1,0 +1,1 @@
+this folder is needed so that the static ctor for the ICSharpCode.SharpDevelop.Internal.Templates.TextTemplate class does not crash when you copy or paste text.
