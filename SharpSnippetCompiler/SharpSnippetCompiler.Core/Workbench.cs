@@ -64,7 +64,10 @@ namespace ICSharpCode.SharpSnippetCompiler.Core
 		
 		public IWorkbenchWindow ActiveWorkbenchWindow {
 			get {
-				throw new NotImplementedException();
+				if (activeViewContent != null) {
+					return activeViewContent.WorkbenchWindow;
+				}
+				return null;
 			}
 		}
 		
