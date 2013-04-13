@@ -38,6 +38,7 @@ namespace ICSharpCode.SharpSnippetCompiler
 	{
 		TabControl tabControl;
 		SnippetTabPage tabPage;
+		IViewContent activeViewContent;
 		
 		public WorkbenchWindow(TabControl tabControl, SnippetTabPage tabPage)
 		{
@@ -64,8 +65,8 @@ namespace ICSharpCode.SharpSnippetCompiler
 		}
 		
 		public IViewContent ActiveViewContent {
-			get { return null; }
-			set { }
+			get { return activeViewContent; }
+			set { activeViewContent = value; }
 		}
 		
 		public Icon Icon {
