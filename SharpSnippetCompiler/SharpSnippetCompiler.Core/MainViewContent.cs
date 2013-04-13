@@ -32,6 +32,7 @@ namespace ICSharpCode.SharpSnippetCompiler.Core
 			this.snippetControl = snippetControl;
 			this.textEditor = snippetControl.TextEditor;
 			this.workbenchWindow = workbenchWindow;
+			this.workbenchWindow.ActiveViewContent = this;
 		}
 		
 		public event EventHandler TabPageTextChanged;
